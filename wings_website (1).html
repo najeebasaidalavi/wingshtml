@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINGS - Women's Initiative to Nurture Growth of Society</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #fefefe;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ffd6e8 0%, #e7c6ff 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #880e4f;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ffd6e8 0%, #e7c6ff 50%, #b3e5fc 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-logo {
+            max-width: 300px;
+            margin: 0 auto 2rem;
+            animation: fadeInDown 1s;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #c2185b;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero .full-name {
+            font-size: 1.5rem;
+            color: #880e4f;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            animation: fadeInUp 1s 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s 0.3s backwards;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            font-style: italic;
+            color: #c2185b;
+            font-weight: 600;
+            animation: fadeInUp 1s 0.4s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #c2185b;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .about-text {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #fff0f5 0%, #f3e5f5 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(194, 24, 91, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #ffd6e8;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(194, 24, 91, 0.15);
+        }
+
+        .card h3 {
+            color: #c2185b;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .objectives {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .objective-item {
+            background: linear-gradient(135deg, #e1f5fe 0%, #f3e5f5 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #c2185b;
+            transition: transform 0.3s;
+        }
+
+        .objective-item:hover {
+            transform: translateX(5px);
+        }
+
+        .objective-item h4 {
+            color: #c2185b;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        .objective-item p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .cells {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cell-card {
+            background: linear-gradient(135deg, #fff0f5 0%, #e1f5fe 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(194, 24, 91, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #ffd6e8;
+        }
+
+        .cell-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(194, 24, 91, 0.15);
+        }
+
+        .cell-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ffd6e8 0%, #e7c6ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: #c2185b;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(194, 24, 91, 0.2);
+        }
+
+        .cell-card h3 {
+            color: #c2185b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .cell-card p {
+            color: #666;
+        }
+
+        .eligibility {
+            background: linear-gradient(135deg, #fff0f5 0%, #e1f5fe 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            border: 2px solid #ffd6e8;
+        }
+
+        .eligibility h3 {
+            color: #c2185b;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .eligibility ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .eligibility li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+        }
+
+        .eligibility li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #c2185b;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .perks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .perk-item {
+            background: linear-gradient(135deg, #ffd6e8 0%, #e7c6ff 100%);
+            color: #4a4a4a;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(194, 24, 91, 0.1);
+        }
+
+        .perk-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(194, 24, 91, 0.2);
+        }
+
+        .perk-item h4 {
+            margin-bottom: 0.8rem;
+            color: #c2185b;
+            font-size: 1.3rem;
+        }
+
+        .perk-item p {
+            color: #666;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #ffd6e8 0%, #e7c6ff 50%, #b3e5fc 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-radius: 0;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #c2185b;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            color: #880e4f;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #c2185b;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(194, 24, 91, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(194, 24, 91, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1f5fe 100%);
+            color: #4a4a4a;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: #c2185b;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .full-name {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .logo-img {
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="WINGSlogo.png" alt="WINGS Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#cells">Our Cells</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="WINGSlogo.png" alt="WINGS Logo" class="hero-logo">
+        <h1>WINGS</h1>
+        <div class="full-name">Women's Initiative to Nurture Growth of Society</div>
+        <p>Empowering Professional Muslim Women for a Better Tomorrow</p>
+        <div class="tagline">Fly High!</div>
+    </section>
+
+    <div class="container">
+        <section id="about" class="section">
+            <h2 class="section-title">About WINGS</h2>
+            <p class="about-text">
+                WINGS is a social platform for Professional Muslim Women formed with the intention of paving the way 
+                for the holistic advancement of its members. Our members contribute their expertise to serve the 
+                weaker sections of society in general, and women and children in particular - irrespective of their 
+                religious or social stratification. Since our inception in 2016, we have been productively engaging 
+                in the holistic development of women and children across several districts in Kerala.
+            </p>
+
+            <div class="vision-mission">
+                <div class="card">
+                    <h3>Vision</h3>
+                    <p>To build a fair and equitable society by empowering women and fostering their holistic wellbeing.</p>
+                </div>
+                <div class="card">
+                    <h3>Mission</h3>
+                    <p>To empower and support women by providing educational opportunities, promoting career advancement, 
+                    offering legal aid, and fostering wellness. We aim to create a supportive community where our members 
+                    can thrive and reach their full potential in all aspects of their lives.</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: #c2185b; margin: 3rem 0 2rem; font-size: 2rem;">Our Objectives</h3>
+            <div class="objectives">
+                <div class="objective-item">
+                    <h4>A</h4>
+                    <p>Focus on physical, emotional, spiritual and professional upliftment of WINGS members and women at large.</p>
+                </div>
+                <div class="objective-item">
+                    <h4>B</h4>
+                    <p>Enlighten women about balancing their rights and responsibilities.</p>
+                </div>
+                <div class="objective-item">
+                    <h4>C</h4>
+                    <p>Contribute to building functional families which are conducive for a happy and healthy living.</p>
+                </div>
+                <div class="objective-item">
+                    <h4>D</h4>
+                    <p>Nurture a generation being committed to giving back to society.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cells" class="section">
+            <h2 class="section-title">Our Cells</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #555; font-size: 1.1rem;">
+                WINGS activities are undertaken through four cells that oversee activities for our members and society. 
+                Members can be part of any cell according to their qualification, aptitude and interest.
+            </p>
+            <div class="cells">
+                <div class="cell-card">
+                    <div class="cell-icon">PR</div>
+                    <h3>PR and Organization Cell</h3>
+                    <p>Uniting WINGS members through diverse programs and enhancing the organization's public relations.</p>
+                </div>
+                <div class="cell-card">
+                    <div class="cell-icon">⚖️</div>
+                    <h3>Legal Cell</h3>
+                    <p>Addressing legal issues of members and the society.</p>
+                </div>
+                <div class="cell-card">
+                    <div class="cell-icon">💪</div>
+                    <h3>Fitness Cell</h3>
+                    <p>Health related professionals and their activities.</p>
+                </div>
+                <div class="cell-card">
+                    <div class="cell-icon">⚡</div>
+                    <h3>Empowerment Cell</h3>
+                    <p>All other activities that require our attention.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="membership" class="section">
+            <h2 class="section-title">Can You Be a Part of WINGS?</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; color: #555; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Yes, you can! If you are a Muslim woman qualified in any of the professional fields listed below 
+                and you have an innate passion to serve the society, you are welcome to the WINGS fraternity.
+            </p>
+
+            <div class="eligibility">
+                <h3>Eligible Professionals (Working or Non-Working)</h3>
+                <ul>
+                    <li>Doctors: Government Recognized Medical Practitioners</li>
+                    <li>Mental Health Professionals</li>
+                    <li>Engineers</li>
+                    <li>Advocates</li>
+                    <li>Academicians (Head of Educational Institutions, Head of Departments, Doctorate holders, College Lecturers and above)</li>
+                    <li>Government Officials</li>
+                    <li>Professionally Qualified Social Workers (MSW)</li>
+                    <li>Media Professionals (Visual & Print)</li>
+                    <li>Chartered Accountants</li>
+                    <li>Entrepreneurs with any of the above backgrounds</li>
+                </ul>
+            </div>
+
+            <h3 style="text-align: center; color: #c2185b; margin: 3rem 0 2rem; font-size: 2rem;">Perks of Being a WINGS Member</h3>
+            <div class="perks">
+                <div class="perk-item">
+                    <h4>Exclusive Network</h4>
+                    <p>Golden chance to become part of an exclusive network which will give you prime access to women who have expertise in different fields.</p>
+                </div>
+                <div class="perk-item">
+                    <h4>Creative Workshops</h4>
+                    <p>Creative workshops to improve WINGS members' soft skills and knowledge-based skills.</p>
+                </div>
+                <div class="perk-item">
+                    <h4>Motivational Programs</h4>
+                    <p>Motivational workshops for parents, couples, teens, children and working women.</p>
+                </div>
+                <div class="perk-item">
+                    <h4>Special Discounts</h4>
+                    <p>Special discount for offline events conducted by WINGS.</p>
+                </div>
+                <div class="perk-item">
+                    <h4>Annual Gatherings</h4>
+                    <p>Annual meet or get together of WINGS members.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="cta">
+        <h2>Join Hands for a Better Tomorrow!</h2>
+        <p>We are here to Fly High!</p>
+        <a href="mailto:wings2016official@gmail.com" class="cta-button">Contact Us</a>
+    </section>
+
+    <footer id="contact">
+        <h3>Contact Us</h3>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:wings2016official@gmail.com">wings2016official@gmail.com</a></p>
+            <p style="margin-top: 1rem; color: #666;">Follow our page for more details</p>
+        </div>
+        <p style="margin-top: 2rem; color: #888;">© 2025 WINGS - Women's Initiative to Nurture Growth of Society</p>
+    </footer>
+</body>
+</html>
